@@ -2,11 +2,19 @@
   "name": "react-starter",
   "version": "1.0.0",
   "description": "React starter kit based on Cory House's Pluralsight course",
+  "scripts": {
+    "prestart": "babel-node tools/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch",
+    "open:src": "babel-node tools/srcServer.js",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "lint:watch": "npm run lint -- --watch"
+  },
   "author": "Simon Søllingvraa",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
+    "core-js": "^2.4.0",
     "jquery": "2.2.3",
     "react": "15.0.2",
     "react-dom": "15.0.2",
